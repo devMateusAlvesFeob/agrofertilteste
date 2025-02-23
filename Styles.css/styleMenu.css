@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --fonte-principal: "Roboto", sans-serif;
+  --cor-dos-botoes: #005e4e;
+  --cor-do-fundo-botoes: #ffffff;
+  --tamanho-da-fonte-principal: 1.2rem;
+  --tamanho-da-fonte-secundaria: 1rem;
+  --cor-dos-detalhes: rgb(22, 32, 0);
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: safe;
+  height: 100vh;
+  font-size: var(--tamanho-da-fonte-principal);
+  font-family: var(--fonte-principal);
+}
+
+.menu-lateral {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(22, 32, 0);
+  width: 15%;
+  height: 100%;
+  padding: 1%;
+  color: white;
+}
+
+nav ul {
+  list-style-type: none; /* Remove os marcadores padrão */
+  padding: 0; /* Remove o padding padrão */
+  margin: 0; /* Remove a margem padrão */
+}
+
+.titulo-principal {
+  font-family: var(--fonte-principal);
+  font-size: 2rem;
+}
+
+.li {
+  font-size: var(--tamanho-da-fonte-principal);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Alinha verticalmente */
+  padding: 10px; /* Adiciona espaçamento interno */
+  color: white; /* Cor do texto */
+  border-radius: 5px; /* Borda arredondada */
+  transition: background-color 0.3s; /* Transição suave na cor de fundo */
+  text-decoration: none;
+}
+
+nav li:hover {
+  background-color: #004b40; /* Cor ao passar o mouse */
+  transform: scale(1.02);
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  width: 85%;
+  height: 100%;
+  padding: 1%;
+  color: var(--cor-dos-detalhes);
+  gap: 20px;
+}
+
+.conteiner-1 {
+  background-color: #e7e9e9;
+  width: 97.5%;
+  padding: 20px;
+}
+
+h1 {
+  font-family: var(--fonte-principal);
+  font-size: var(--tamanho-da-fonte-principal);
+}
+
+p {
+  font-family: var(--tamanho-da-fonte-secundaria);
+}
+
+.paragrafo-obervacoes {
+  color: #ff0000;
+}
+
+.conteiner-2 {
+  font-family: var(--fonte-principal);
+  background-color: #e7e9e9;
+  width: 97.5%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 50px;
+}
+
+.container-2-1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.conteiner-2-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cards {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: var(--cor-dos-detalhes);
+  padding: 20px;
+  width: 20%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: var(--cor-dos-detalhes);
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--cor-dos-detalhes);
+  color: white;
+  position: fixed; /* Mantém o footer fixo na parte inferior */
+  bottom: 0;
+  width: 100%;
+  margin-top: 0; /* Remover a margem superior */
+}
+
+/*ESTILIZACAO TABELA DE PRECOS*/
+

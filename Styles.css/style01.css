@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --fonte-principal: "Roboto", sans-serif;
+    --cor-dos-botoes: #005e4e;
+    --cor-do-fundo-botoes: #ffffff;
+    --tamanho-da-fonte-principal: 1.2rem;
+    --tamanho-da-fonte-secundaria: 1rem;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100vh; 
+    font-size: var(--tamanho-da-fonte-principal);
+    font-family: var(--fonte-principal);
+}
+
+h3{
+    font-size: 12px;
+    padding: 1%;
+    background-color: rgb(231, 231, 231);
+    width: 40%;
+    text-align: center;
+}
+
+
+
+.lado-esquerdo {
+    width: 35%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.lado-direito {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20%;
+    gap: 1rem;
+}
+
+.lado-esquerdo .imagem-fundo-principal {
+    height: 100%;
+    width: 100%; 
+    object-fit: cover; 
+}
+
+input{
+   width: 97%; 
+   font-size: var(--tamanho-da-fonte-secundaria);
+   border-radius: 10px;
+   border: 2px solid #a0a0a0;
+   padding: 1%;
+}
+
+.botao-principal{
+    color: var(--cor-do-fundo-botoes);
+    background-color: var(--cor-dos-botoes);
+    border-radius: 10px;
+    font-size: var(--tamanho-da-fonte-principal);
+    width: 100%;
+    padding: 5px;
+}
+
+.botao-principal:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}

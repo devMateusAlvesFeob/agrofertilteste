@@ -1,0 +1,105 @@
+@media (max-width: 600px) {
+  /* Remove margens e preenchimentos de todos os elementos */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inclui padding e bordas no cálculo de largura e altura */
+  }
+
+  :root {
+    --fonte-principal: "Roboto", sans-serif;
+    --cor-dos-botoes: #005e4e;
+    --cor-do-fundo-botoes: #ffffff;
+    --tamanho-da-fonte-principal: 1.2rem;
+    --tamanho-da-fonte-secundaria: 1rem;
+    --cor-dos-detalhes: rgb(22, 32, 0);
+  }
+
+  /* Define o fundo do corpo como branco */
+  body {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0); /* Adiciona cor ao texto para melhor legibilidade */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    font-family: var(--fonte-principal);
+    font-size: var(
+      --tamanho-da-fonte-secundaria
+    ); /* Usa a variável de tamanho da fonte secundária */
+    height: 100vh; /* Faz o body ocupar a altura total da tela */
+  }
+
+  h1 {
+    font-size: 15px; /* Tamanho do título */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+  }
+
+  .conteiner-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo */
+    padding: 0%; /* Diminui o padding */
+    width: 100%; /* Adiciona largura total */
+    flex: 1; /* Permite que o container principal cresça */
+  }
+
+  .conteiner1 {
+    margin-top: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; /* Centraliza os itens */
+  }
+
+  select {
+    font-size: 1.5rem; /* Aumenta o tamanho da fonte do select */
+    width: 100%; /* Faz o select ocupar toda a largura disponível */
+    padding: 1%;
+    border-radius: 10px;
+    color: rgb(78, 78, 78);
+  }
+
+  label {
+    font-size: 1.2rem; /* Aumenta o tamanho da fonte dos rótulos */
+    color: rgb(73, 73, 73);
+  }
+
+  input {
+    font-size: 2rem; /* Aumenta o tamanho da fonte dos inputs */
+    border: none;
+    color: #014713;
+    padding: 10px; /* Espaçamento interno dos inputs */
+    margin-bottom: 10px; /* Espaço abaixo de cada input */
+    width: 100%; /* Faz os inputs ocuparem toda a largura disponível */
+    border-radius: 4px; /* Bordas arredondadas */
+  }
+
+  .conteiner2 {
+    display: flex;
+    flex-direction: row;
+    padding: 5%; /* Diminui o padding */
+    width: 100%; /* Adiciona largura total */
+    justify-content: center; /* Centraliza o conteúdo */
+  }
+
+  .conteiner3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 5%; /* Diminui o padding */
+    width: 100%; /* Adiciona largura total */
+    flex-wrap: wrap; /* Permite que o conteúdo quebre em linhas se necessário */
+    max-height: 80vh; /* Define uma altura máxima */
+    overflow: auto; /* Adiciona rolagem se necessário */
+}
+
+.tabEsquerda,
+.tabDireita {
+    display: flex;
+    flex-direction: column; /* Organiza os rótulos e inputs em coluna */
+    margin: 5px; /* Espaço entre as colunas */
+    width: 40%; /* Ajusta a largura das colunas */
+    flex-basis: 45%; /* Permite ajuste para que as colunas se encaixem */
+}
+}

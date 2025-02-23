@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Styles.css/tabelaPrecos.css" />
+    <title>AgroNet</title>
+    <script>
+    function atualizarDados() {
+        const produtoSelect = document.getElementById("produto");
+        const produto = produtoSelect.value;
+        const custoSpan = document.getElementById("custo");
+        const precoSpan = document.getElementById("preco-avista");
+
+        if (produto) {
+            // Busca o custo e o preço de venda do produto selecionado
+            const custo = parseFloat(produtoSelect.options[produtoSelect.selectedIndex].getAttribute('data-custo'));
+            const venda = parseFloat(produtoSelect.options[produtoSelect.selectedIndex].getAttribute('data-venda'));
+
+            if (!isNaN(custo) && !isNaN(venda)) {
+                custoSpan.textContent = `R$ ${venda.toFixed(2)}`; // Preço de venda
+
+                // Calcula o preço à vista (venda + 18%)
+                const precoVista = venda * 1.8;
+                precoSpan.textContent = `R$ ${precoVista.toFixed(2)}`; // Preço à vista
+            } else {
+                custoSpan.textContent = "R$ 0,00";
+                precoSpan.textContent = "R$ 0,00";
+            }
+        } else {
+            // Limpa os dados se nenhum produto estiver selecionado
+            custoSpan.textContent = "R$ 0,00";
+            precoSpan.textContent = "R$ 0,00";
+        }
+    }
+
+    // Função para inicializar os dados ao carregar a página
+    window.onload = function() {
+        const produtoSelect = document.getElementById("produto");
+        produtoSelect.addEventListener("change", atualizarDados);
+    };
+    </script>
+</head>
+<body>
+<nav class="navbar">
+        <a href="menu.html" target="_blank">
+            
+        </a>
+        
+    </nav>
+    <div class="formularioteste">
+        <img
+            class="icones"
+            src="/assets/logo-agrofertil-removebg-preview.png"
+            alt="Ícone do WhatsApp"
+        /><BR><BR>
+        <label for="produto">Digite aqui o produto que deseja consultar:</label><BR><BR>
+        <select id="produto" name="produto" required>
+            <option value="">Selecione um produto</option>
+            <?php
+            // Preenche as opções do select com os produtos do banco de dados
+            foreach ($produtos as $produto) {
+                echo "<option value=\"" . htmlspecialchars($produto['produto']) . "\" data-custo=\"" . htmlspecialchars($produto['custo']) . "\" data-venda=\"" . htmlspecialchars($produto['venda']) . "\">" . htmlspecialchars($produto['produto']) . "</option>";
+            }
+            ?>
+        </select><br /><br />
+
+        <label>Preco a vista:</label>
+        <span id="custo">R$ 0,00</span><br /><BR>
+
+        <label>Prazo Safra:</label>
+        <span id="preco-avista">R$ 0,00</span><br />
+        <br /><br />
+
+        <p>Descontos apenas apos aprovacao da diretoria</p>
+    </div>
+
+</body>
+</html>

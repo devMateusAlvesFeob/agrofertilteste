@@ -1,0 +1,78 @@
+@media (max-width: 600px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --fonte-principal: "Roboto", sans-serif;
+    --cor-dos-botoes: #005e4e;
+    --cor-do-fundo-botoes: #ffffff;
+    --tamanho-da-fonte-principal: 1.2rem;
+    --tamanho-da-fonte-secundaria: 1rem;
+  }
+
+  body {
+    font-family: var(--fonte-principal);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    background-image: url(/assets/fundo1.jpg);
+    background-size: cover; /* Faz a imagem cobrir toda a área */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    background-position: center; /* Centraliza a imagem */
+    height: 100vh; /* Faz o body ocupar a altura total da tela */
+    margin: 0; /* Remove margens padrão */
+  }
+
+  .imagem-fundo-principal {
+    display: none; /* Oculta a imagem de fundo */
+  }
+
+  .formulario {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    padding: 05%; /* Ajuste se necessário */
+    border-radius: 10px;
+    gap: 20px;
+    width: 90%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adiciona sombra para destaque */
+  }
+
+  h1 {
+    font-size: 30px;
+    text-align: center; /* Centraliza o título */
+  }
+
+  h3 {
+    font-size: 12px;
+    padding: 1%;
+    background-color: rgb(231, 231, 231);
+    width: 80%;
+    text-align: center;
+  }
+
+  input {
+    width: 95%; /* Ajustado para 100% para evitar deslocamento */
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid #a0a0a0;
+    padding: 1%;
+  }
+
+  .botao-principal {
+    color: var(--cor-do-fundo-botoes);
+    background-color: var(--cor-dos-botoes);
+    border-radius: 10px;
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 5px;
+  }
+
+  .botao-principal:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+  }
+}
