@@ -15,7 +15,6 @@
             alt="logomarca da empresa"
             width="40%"
           />
-          
         </div>
       </div>
       <div class="conteiner2">
@@ -74,6 +73,20 @@
           <option value="ziram">Ziram (1 kg)</option>
         </select>
       </div>
+
+      <div class="menu-exibicao">
+        <label for="valor">Valor à vista: R$</label>
+        <input type="text" id="valor" style="font-weight: bold" /><br />
+        <label for="prazo">Prazo safra: R$</label>
+        <input type="text" id="prazo" style="font-weight: bold" /><br />
+      </div>
+
+      <div class="campo-observacao">
+        <h3>Observações:</h3>
+        <textarea class="bold-textarea" rows="4" cols="50"></textarea>
+      </div>
+
+      <div class="toggle">Clique para exibir a tabela completa</div>
       <div class="conteiner3">
         <div class="tabEsquerda">
           <label for="text">Setembro</label><input type="text" /><br />
@@ -92,6 +105,15 @@
           <label for="text">Agosto</label><input type="text" /><br />
         </div>
       </div>
+      <script>
+        document.querySelectorAll(".toggle").forEach((toggle) => {
+          toggle.addEventListener("click", function () {
+            const content = this.nextElementSibling;
+            content.style.display =
+              content.style.display === "block" ? "none" : "block";
+          });
+        });
+      </script>
     </form>
   </body>
 </html>

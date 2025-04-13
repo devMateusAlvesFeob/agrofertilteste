@@ -17,7 +17,7 @@
 
   /* Define o fundo do corpo como branco */
   body {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(251, 251, 251);
     color: rgb(0, 0, 0); /* Adiciona cor ao texto para melhor legibilidade */
     display: flex;
     flex-direction: column;
@@ -27,7 +27,6 @@
     font-size: var(
       --tamanho-da-fonte-secundaria
     ); /* Usa a variável de tamanho da fonte secundária */
-    height: 100vh; /* Faz o body ocupar a altura total da tela */
   }
 
   h1 {
@@ -45,7 +44,7 @@
   }
 
   .conteiner1 {
-    margin-top: 40%;
+    margin-top: 10%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -53,12 +52,24 @@
   }
 
   select {
-    font-size: 1.5rem; /* Aumenta o tamanho da fonte do select */
+    font-size: 1.2rem; /* Aumenta o tamanho da fonte do select */
     width: 100%; /* Faz o select ocupar toda a largura disponível */
-    padding: 1%;
-    border-radius: 10px;
+    padding: 2%;
+    border-radius: 7px;
     color: rgb(78, 78, 78);
   }
+
+  textarea {
+    font-size: 1rem; /* Aumenta o tamanho da fonte do select */
+    width: 100%; /* Faz o select ocupar toda a largura disponível */
+    padding: 2%;
+    border-radius: 7px;
+    color: rgb(0, 91, 8);
+    background-color: rgb(251, 251, 251);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.01); /* Adiciona sombra */
+    border: none;
+  }
+
 
   label {
     font-size: 1.2rem; /* Aumenta o tamanho da fonte dos rótulos */
@@ -66,11 +77,12 @@
   }
 
   input {
-    font-size: 2rem; /* Aumenta o tamanho da fonte dos inputs */
+    background-color: rgb(251, 251, 251);
+    font-size: 1.2rem; /* Aumenta o tamanho da fonte dos inputs */
     border: none;
-    color: #014713;
-    padding: 10px; /* Espaçamento interno dos inputs */
-    margin-bottom: 10px; /* Espaço abaixo de cada input */
+    color: #178e02;
+    padding: 2px; /* Espaçamento interno dos inputs */
+    margin-bottom: 0px; /* Espaço abaixo de cada input */
     width: 100%; /* Faz os inputs ocuparem toda a largura disponível */
     border-radius: 4px; /* Bordas arredondadas */
   }
@@ -84,7 +96,7 @@
   }
 
   .conteiner3 {
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-around;
     padding: 5%; /* Diminui o padding */
@@ -92,14 +104,49 @@
     flex-wrap: wrap; /* Permite que o conteúdo quebre em linhas se necessário */
     max-height: 80vh; /* Define uma altura máxima */
     overflow: auto; /* Adiciona rolagem se necessário */
-}
+  }
 
-.tabEsquerda,
-.tabDireita {
+  .tabEsquerda,
+  .tabDireita {
     display: flex;
     flex-direction: column; /* Organiza os rótulos e inputs em coluna */
     margin: 5px; /* Espaço entre as colunas */
     width: 40%; /* Ajusta a largura das colunas */
     flex-basis: 45%; /* Permite ajuste para que as colunas se encaixem */
-}
+  }
+
+  .menu-exibicao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centraliza os itens */
+  }
+
+  .menu-exibicao input {
+    text-align: center;
+    width: 80%;
+  }
+
+  .conteiner3 {
+    display: none; /* Inicialmente oculto */
+  }
+  .toggle {
+    border-radius: 10px;
+    margin: 20px;
+    cursor: pointer;
+    background-color: #0b2b00;
+    color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    text-align: center;
+    width: 90%;
+  }
+
+  .campo-observacao {
+    display: flex;
+    flex-direction: column;
+    align-items: safe;
+    padding: 5%;
+  }
 }

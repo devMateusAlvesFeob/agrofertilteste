@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!--<link rel="stylesheet" href="/Styles.css/style01.css">-->
-    <link rel="stylesheet" href="/Styles.css/indexMobile.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrar - Microsoft</title>
+    <link rel="stylesheet" href="/Styles.css/stilecssreal.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-box">
+        <img
+          src="/assets/logo-agrofertil-removebg-preview.png"
+          alt="Agrofertil logo"
+          class="logo"
+        />
+        <h2>Entrar</h2>
+        <input type="text" id="usuario" placeholder="Usuário" class="input" />
+        <input
+          type="password"
+          id="senha"
+          placeholder="Sua senha"
+          class="input"
+        />
 
-
-    <title>Tabela de preços</title>
-</head>
-<body>
-    <div class="lado-esquerdo">
-        <img class="imagem-fundo-principal" src="./assets/fundo1.jpg" alt="imagem de fundo">
-    </div>
-    <div class="lado-direito">
-        
-        <div class="formulario">
-            <h1>AGRO PLATAFORMA</h1>
-            <h3>CLIENTE: AGROFÉRTIL AGRÍCOLA LTDA</h3>
-            <input type="text" placeholder="Usuário" required>
-            <input type="password" placeholder="Senha" required>
-            <button class="botao-principal" type="submit">Entrar</button>
-            <a href="/tabela2.html">acesso provisorio liberado</a>
+        <a href="#" class="link">Não consegue acessar sua conta?</a>
+        <div class="buttons">
+          <button class="btn avancar" onclick="verificarLogin()">
+            Avançar
+          </button>
         </div>
-        
-    </form>
+      </div>
+      <div class="footer">
+        <button class="entrada"><span class="icon">🔑</span> Manual</button>
+      </div>
     </div>
-    
-</body>
+
+    <script>
+      function verificarLogin() {
+        const usuario = document.getElementById("usuario").value;
+        const senha = document.getElementById("senha").value;
+
+        if (usuario === "admin" && senha === "admin") {
+          window.location.href = "menu-admin.html";
+        } else {
+          alert("Usuário ou senha incorretos!");
+        }
+      }
+    </script>
+  </body>
 </html>
