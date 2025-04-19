@@ -18,7 +18,7 @@
   <div class="cards">
     <a href="/agrofertil2025/tabela2.php">Consultar tabela</a>
     <a href="/agrofertil2025/Produto.php">Cadastrar novo produto</a>
-    <a href="/agrofertil2025/">Ajustar Precos</a>
+    <a href="/agrofertil2025/crud.php">Ajustar Precos</a>
     <a href="/agrofertil2025/">Liberar Usuario</a>
   </div>
 </body>

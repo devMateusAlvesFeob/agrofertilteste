@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Styles.css/cadastro.css" />
+    <title>AGROFERTILAGRICOLA</title>
+</head>
+
+<body>
+    <div class="tela">
+        <?php
+        include 'conexao.php';
+
+        $mensagem = '';
+        $classe = '';
+        $produtoEncontrado = null;
+
+        // Atualização de produto
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $idProduto = $_POST['produto'];
+            $categoria = $_POST['categoria'];
+            $observacao = $_POST['observacao'];
+            $precoCusto = str_replace(',', '.', $_POST['precoCusto']);
+            $margem = str_replace(',', '.', $_POST['margem']);
+
+            $stmt = $conn->prepare("UPDATE tabela_precos SET categoria = ?, observacao = ?, precoCusto = ?, margem = ?, precoAnterior = ? WHERE idProduto = ?");
+            $stmt->bind_param("ssddid", $categoria, $observacao, $precoCusto, $margem, $precoAnterior, $idProduto);
+
+            if ($stmt->execute()) {
+                $mensagem = "Alteração realizada com sucesso!";
+                $classe = "success";
+            } else {
+                $mensagem = "Erro ao alterar produto: " . $stmt->error;
+                $classe = "error";
+            }
+
+            $stmt->close();
+        }
+
+        // Carrega todos os produtos para o select
+        $produtos = [];
+        $sql = "SELECT idProduto, descricao FROM tabela_precos ORDER BY descricao";
+        $result = $conn->query($sql);
+        while ($row = $result->fetch_assoc()) {
+            $produtos[] = $row;
+        }
+        ?>
+
+        <div class="alerta <?php echo $classe; ?> <?php echo $mensagem ? 'show' : ''; ?>" id="mensagem">
+            <?php echo $mensagem; ?>
+        </div>
+
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="cabecalho">
+                <h1>AJUSTES</h1>
+            </div>
+            <div class="cadastroUnico">
+                <label for="produto"><strong>Pesquise o produto:</strong></label>
+                <select id="produto" name="produto" required onchange="loadProductData(this.value)">
+                    <option value="">Selecione um produto</option>
+                    <?php foreach ($produtos as $produto): ?>
+                        <option value="<?php echo $produto['idProduto']; ?>">
+                            <?php echo htmlspecialchars($produto['descricao']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+
+                <label for="categoria"><strong>Categoria:</strong></label>
+                <select id="categoria" name="categoria" required>
+                    <optgroup label="Defensivos e Produtos Agrícolas">
+                        <option value="adubos">Adubos</option>
+                        <option value="biologicos">Biológicos</option>
+                        <option value="fungicida">Fungicida</option>
+                        <option value="fungicida_herbicida">Fungicida + Herbicida</option>
+                        <option value="foliares">Foliares</option>
+                        <option value="herbicida">Herbicida</option>
+                        <option value="inoculantes">Inoculantes</option>
+                        <option value="sementes">Sementes</option>
+                    </optgroup>
+                </select><br />
+
+                <label for="observacao"><strong>Observação:</strong></label>
+                <input type="text" id="observacao" name="observacao" placeholder="Digite a observação" /><br />
+
+                <label for="precoCusto"><strong>Preço de custo ATUAL:</strong></label>
+                <input type="text" id="precoCusto" name="precoCusto" required placeholder="Digite o preço de custo" /><br />
+
+                <label for="precoAnterior"><strong>Preço de custo ANTERIOR:</strong></label>
+                <input type="text" id="precoAnterior" name="precoAnterior" required placeholder="Preço de custo anterior" readonly /><br />
+
+
+                <label for="margem"><strong>Markup:</strong></label>
+                <input type="text" id="margem" name="margem" required placeholder="Digite a margem" />
+            </div>
+
+            <div class="botoes">
+                <a href="menu-admin.php" class="btn-menu">Menu</a>
+                <button type="submit" class="btn">Salvar Alteração</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const alerta = document.getElementById('mensagem');
+            if (alerta) {
+                setTimeout(() => {
+                    alerta.classList.remove('show');
+                }, 5000);
+            }
+        });
+
+        function loadProductData(idProduto) {
+            if (!idProduto) return;
+
+            fetch(`get_product.php?idProduto=${idProduto}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error); // Exibe um alerta com o erro caso ocorra
+                    } else {
+                        document.getElementById('categoria').value = data.categoria;
+                        document.getElementById('observacao').value = data.observacao;
+                        document.getElementById('precoCusto').value = data.precoCusto;
+                        document.getElementById('precoAnterior').value = data.precoAnterior; // Preenche o preço anterior
+                        document.getElementById('margem').value = data.margem;
+                    }
+                })
+                .catch(error => console.error('Erro ao buscar dados do produto:', error));
+        }
+    </script>
+</body>
+
+</html>

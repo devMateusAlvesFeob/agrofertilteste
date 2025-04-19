@@ -32,8 +32,8 @@
 
             // Prepara a query SQL com prepared statements
             // Nota: Adicionei a coluna 'categoria' que estava no formulário mas não na query
-            $stmt = $conn->prepare("INSERT INTO tabela_precos (descricao, categoria, observacao, precoCusto, margem) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssdd", $descricao, $categoria, $observacao, $precoCusto, $margem);
+            $stmt = $conn->prepare("INSERT INTO tabela_precos (descricao, categoria, observacao, precoCusto, margem, precoAnterior) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssddd", $descricao, $categoria, $observacao, $precoCusto, $margem, $precoCusto);
 
             // Executa a query
             if ($stmt->execute()) {
