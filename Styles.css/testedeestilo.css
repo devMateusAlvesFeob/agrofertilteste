@@ -24,14 +24,22 @@
     justify-content: center; /* Centraliza verticalmente */
     align-items: center; /* Centraliza horizontalmente */
     font-family: var(--fonte-principal);
-    font-size: var(
-      --tamanho-da-fonte-secundaria
-    ); /* Usa a variável de tamanho da fonte secundária */
   }
 
   h1 {
-    font-size: 15px; /* Tamanho do título */
+    font-size: 25px; /* Tamanho do título */
     margin-bottom: 20px; /* Espaço abaixo do título */
+  }
+
+  .cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--fonte-principal);
+    font-size: 5rem;
+    background-color: #0b2b00;
+    padding: 20px;
+    color: #ffffff;
   }
 
   .conteiner-principal {
@@ -69,7 +77,6 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.01); /* Adiciona sombra */
     border: none;
   }
-
 
   label {
     font-size: 1.2rem; /* Aumenta o tamanho da fonte dos rótulos */

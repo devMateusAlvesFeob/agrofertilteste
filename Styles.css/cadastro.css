@@ -36,14 +36,15 @@
   }
 
   .cadastroUnico {
-    color: rgb(78, 78, 78);
+    color: #0b2b00;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-    background-color: rgb(246, 255, 240);
+    background-color: rgb(255, 255, 255);
     font-size: 1.2rem;
     font-family: var(--fonte-principal);
+    margin-bottom: 0; /* Adicione esta linha para remover a margem inferior */
   }
 
   input,
@@ -62,8 +63,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 20px;
-    gap: 4px;
+    padding: 10px 20px; /* Reduza o padding vertical para 10px */
+    gap: 2px;
+    margin-top: -10px; /* Adicione esta linha para subir os botões */
   }
   .btn {
     font-family: var(--fonte-principal);
@@ -75,23 +77,38 @@
     border-radius: 10px;
   }
 
-  .btn-retornar {
+  .btn-menu {
+    text-align: center;
     font-family: var(--fonte-principal);
-    background-color: #810000;
+    background-color: #bb0000;
     padding: 10px;
     width: 100%;
     font-size: 1.2rem;
     color: #ffffff;
     border-radius: 10px;
+    text-decoration: none;
   }
 
   .alerta {
-    margin: 20px 0;
+    position: fixed; /* ou absolute */
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
+    width: 90%;
+    max-width: 600px;
+    transform: translateY(-100%); /* Inicialmente escondido */
+    transition: transform 0.3s ease;
+  }
+
+  .alerta.show {
+    transform: translateY(0); /* Mostra o alerta */
   }
 
   .alerta.success {

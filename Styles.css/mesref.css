@@ -1,0 +1,74 @@
+@media (max-width: 600px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --fonte-principal: "Roboto", sans-serif;
+    --cor-dos-botoes: #005e4e;
+    --cor-do-fundo-botoes: #ffffff;
+    --tamanho-da-fonte-principal: 1.2rem;
+    --tamanho-da-fonte-secundaria: 0.8rem;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    height: 100vh; /* Define a altura do corpo como 100% da altura da janela */
+    padding: 20px; /* Adiciona padding para não colar os elementos nas bordas */
+    box-sizing: border-box; /* Faz com que o padding não afete a largura total */
+    gap: 20px; /* Espaço entre os elementos */
+  }
+
+  .cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--fonte-principal);
+    font-size: 2rem;
+    background-color: #0b2b00;
+    padding: 20px;
+    color: #ffffff;
+  }
+
+  select {
+    width: 95%;
+    padding: 0.8rem;
+    border: none;
+    border-bottom: 2px solid #237d31;
+    font-size: 2rem;
+    outline: none;
+  }
+
+  .btn {
+    font-family: var(--fonte-principal);
+    background-color: #0b2b00;
+    padding: 10px;
+    width: 100%;
+    font-size: 3rem;
+    color: #ffffff;
+    border-radius: 10px;
+  }
+
+  a {
+    font-size: 20px;
+    background-color: #9d0000;
+    padding: 10px;
+    width: 70%;
+    font-size: 3rem;
+    color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--fonte-principal);
+  }
+
+  .formulario1 {
+    display: flex; /* Adiciona flex para o formulário */
+    flex-direction: column; /* Alinha os itens em coluna */
+    align-items: center;
+    gap: 20px; /* Espaço entre os elementos do formulário */
+  }
+}
