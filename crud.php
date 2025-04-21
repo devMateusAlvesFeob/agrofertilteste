@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Styles.css/cadastro.css" />
-    <title>AGROFERTILAGRICOLA</title>
+    <title>Agrofertil Agricola</title>
 </head>
 
 <body>

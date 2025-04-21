@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Styles.css/cadastro.css" />
-    <title>AgroPlataforma</title>
+    <title>Agrofertil Agricola</title>
 </head>
 
 <body>
@@ -68,7 +68,7 @@
                     placeholder="Digite a descrição" /><br />
                 <label for="categoria"><strong>Categoria:</strong></label>
                 <select id="categoria" name="categoria" required>
-                    <optgroup label="Defensivos e Produtos Agrícolas">
+                    <optgroup label="Selecione uma categoria">
                         <option value="adubos">Adubos</option>
                         <option value="biologicos">Biológicos</option>
                         <option value="fungicida">Fungicida</option>
