@@ -1,29 +1,3 @@
-<?php
-include 'conexao.php';
-
-// Verificar se o formulário foi enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $mesSelecionado = $_POST['mesSelecionado'];
-
-    // Salvar o mês selecionado no banco de dados
-    $sql = "UPDATE configuracoes SET mesSelecionado = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $mesSelecionado);
-    $stmt->execute();
-}
-
-// Buscar o mês selecionado
-$sql = "SELECT mesSelecionado FROM configuracoes LIMIT 1";
-$result = $conn->query($sql);
-
-// Verificar se a consulta retornou um resultado
-if ($result && $result->num_rows > 0) {
-    $mesAtual = $result->fetch_assoc()['mesSelecionado'];
-} else {
-    $mesAtual = 'setembro'; // Define um mês padrão se não houver resultado
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 

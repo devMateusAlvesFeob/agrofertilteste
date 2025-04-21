@@ -9,36 +9,7 @@
 </head>
 
 <body>
-  <?php
-  // Conexão com o banco de dados
-  include 'conexao.php';
-
-  // Verificar se a conexão foi estabelecida
-  if (!($conn instanceof mysqli) || $conn->connect_error) {
-    die("Erro: Conexão com o banco de dados não estabelecida corretamente");
-  }
-
-  // Buscar produtos do banco de dados
-  $produtos = [];
-  try {
-    $sql = "SELECT idProduto, descricao FROM tabela_precos ORDER BY descricao";
-    $result = $conn->query($sql);
-
-    if ($result === false) {
-      throw new Exception("Erro na consulta: " . $conn->error);
-    }
-
-    $produtos = $result->fetch_all(MYSQLI_ASSOC);
-  } catch (Exception $e) {
-    die("Erro: " . $e->getMessage());
-  }
-
-  // Buscar o mês selecionado
-  $sql = "SELECT mesSelecionado FROM configuracoes LIMIT 1";
-  $resultMes = $conn->query($sql);
-  $mesAtual = $resultMes && $resultMes->num_rows > 0 ? $resultMes->fetch_assoc()['mesSelecionado'] : 'setembro';
-  ?>
-
+  
   <form action="" method="get">
     <div class="conteiner-principal">
       <div class="cabecalho">
